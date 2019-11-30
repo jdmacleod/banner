@@ -16,6 +16,8 @@
 		96E9EFA32391ACD1001188A3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96E9EFA12391ACD1001188A3 /* LaunchScreen.storyboard */; };
 		96E9EFAE2391ACD1001188A3 /* bannerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E9EFAD2391ACD1001188A3 /* bannerTests.swift */; };
 		96E9EFB92391ACD2001188A3 /* bannerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E9EFB82391ACD2001188A3 /* bannerUITests.swift */; };
+		96E9EFC72391CA5F001188A3 /* AddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E9EFC62391CA5F001188A3 /* AddView.swift */; };
+		96E9EFC92391DC76001188A3 /* ShowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E9EFC82391DC76001188A3 /* ShowView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +53,8 @@
 		96E9EFB42391ACD2001188A3 /* bannerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = bannerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		96E9EFB82391ACD2001188A3 /* bannerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bannerUITests.swift; sourceTree = "<group>"; };
 		96E9EFBA2391ACD2001188A3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		96E9EFC62391CA5F001188A3 /* AddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddView.swift; sourceTree = "<group>"; };
+		96E9EFC82391DC76001188A3 /* ShowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +108,8 @@
 				96E9EF932391ACC6001188A3 /* AppDelegate.swift */,
 				96E9EF952391ACC6001188A3 /* SceneDelegate.swift */,
 				96E9EF9A2391ACC6001188A3 /* ContentView.swift */,
+				96E9EFC62391CA5F001188A3 /* AddView.swift */,
+				96E9EFC82391DC76001188A3 /* ShowView.swift */,
 				96E9EF9C2391ACD1001188A3 /* Assets.xcassets */,
 				96E9EFA12391ACD1001188A3 /* LaunchScreen.storyboard */,
 				96E9EFA42391ACD1001188A3 /* Info.plist */,
@@ -272,8 +278,10 @@
 			files = (
 				96E9EF992391ACC6001188A3 /* banner.xcdatamodeld in Sources */,
 				96E9EF942391ACC6001188A3 /* AppDelegate.swift in Sources */,
+				96E9EFC72391CA5F001188A3 /* AddView.swift in Sources */,
 				96E9EF9B2391ACC6001188A3 /* ContentView.swift in Sources */,
 				96E9EF962391ACC6001188A3 /* SceneDelegate.swift in Sources */,
+				96E9EFC92391DC76001188A3 /* ShowView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
