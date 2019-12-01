@@ -1,14 +1,14 @@
 //
-//  AddView.swift
+//  EditView.swift
 //  banner
 //
-//  Created by Jason MacLeod on 11/29/19.
+//  Created by Jason MacLeod on 11/30/19.
 //  Copyright © 2019 Jason MacLeod. All rights reserved.
 //
 
 import SwiftUI
 
-struct AddView: View {
+struct EditView: View {
     @Environment(\.presentationMode) var presentationMode
     @ObservedObject var banners: Banners
     @State private var text = ""
@@ -16,13 +16,13 @@ struct AddView: View {
     var body: some View {
         NavigationView {
             Form {
-                TextField("Type text here.", text: $text)
+                TextField("BannerText", text: $text)
             }
-            .navigationBarTitle(Text("Add Banner"), displayMode: .inline)
+            .navigationBarTitle(Text("Edit Banner"), displayMode: .inline)
             .navigationBarItems(leading: Button("Cancel") {
                 self.presentationMode.wrappedValue.dismiss()
                 }, trailing: Button("Save") {
-                    let item = Banner(text: self.text.trimmingCharacters(in: .whitespacesAndNewlines))
+                    let item = Banner(text: self.text)
                     self.banners.items.append(item)
                     self.presentationMode.wrappedValue.dismiss()
             })
@@ -30,8 +30,8 @@ struct AddView: View {
     }
 }
 
-struct AddView_Previews: PreviewProvider {
+struct EditView_Previews: PreviewProvider {
     static var previews: some View {
-        AddView(banners: Banners())
+        EditView(banners: Banners())
     }
 }

@@ -40,34 +40,46 @@ class Banners: ObservableObject {
 
 struct ContentView: View {
     @ObservedObject var banners = Banners()
-    @State private var showingAddBanner = false
-    
+    @State private var modalView = false
+    @State private var showingEditBanner = false
+    @Environment(\.editMode) var editMode
+
     var body: some View {
         NavigationView {
             List {
                 ForEach(banners.items) { item in
-                    Text(item.text)
+                    NavigationLink(destination: DetailView(banner: item)
+                    ) {
+                            Text(item.text)
+                    }
                 }
                 .onDelete(perform: removeItems)
+                .onMove(perform: moveItems)
             }
             .navigationBarTitle("iBanner")
-            .navigationBarItems(trailing:
+            .navigationBarItems(leading: EditButton(), trailing:
                 Button(action: {
-                    self.showingAddBanner = true
+                    self.modalView = true
                 }){
                     Image(systemName: "plus")
+                    .padding()
                 }
             )
-            .sheet(isPresented: $showingAddBanner) {
+        }
+        .sheet(isPresented: $modalView) {
+            if self.editMode?.wrappedValue == .inactive {
                 AddView(banners: self.banners)
+            }
+            if self.editMode?.wrappedValue == .active {
+                EditView(banners: self.banners)
             }
         }
     }
     func removeItems(at offsets: IndexSet) {
         banners.items.remove(atOffsets: offsets)
     }
-    func showItem() {
-        ShowView(banners: self.banners)
+    func moveItems(from source: IndexSet, to destination: Int) {
+        banners.items.move(fromOffsets: source, toOffset: destination)
     }
 }
 struct ContentView_Previews: PreviewProvider {
