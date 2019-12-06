@@ -43,14 +43,14 @@ struct ContentView: View {
     @State private var modalView = false
     @State private var showingEditBanner = false
     @Environment(\.editMode) var editMode
-
+    
     var body: some View {
         NavigationView {
             List {
                 ForEach(banners.items) { item in
                     NavigationLink(destination: DetailView(banner: item)
                     ) {
-                            Text(item.text)
+                        Text(item.text)
                     }
                 }
                 .onDelete(perform: removeItems)
@@ -62,7 +62,7 @@ struct ContentView: View {
                     self.modalView = true
                 }){
                     Image(systemName: "plus")
-                    .padding()
+                        .padding()
                 }
             )
         }

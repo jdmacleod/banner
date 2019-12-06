@@ -11,12 +11,12 @@ import SwiftUI
 struct DetailView: View {
     let banner: Banner
     @State private var inverted = false
-
+    
     var body: some View {
         ZStack {
             if (self.inverted){
-            Color(UIColor.systemBackground).colorInvert()
-                .edgesIgnoringSafeArea(.all)
+                Color(UIColor.systemBackground).colorInvert()
+                    .edgesIgnoringSafeArea(.all)
             } else {
                 Color(UIColor.systemBackground)
                     .edgesIgnoringSafeArea(.all)
@@ -26,18 +26,19 @@ struct DetailView: View {
                     if (self.inverted) {
                         Text(banner.text)
                             .foregroundColor(Color(UIColor.label)).colorInvert()
-                        .lineLimit(1)
-                        .font(.custom("Menlo", size: 250))
+                            .lineLimit(1)
+                            .font(.custom("Menlo", size: 250))
                             .minimumScaleFactor(.leastNonzeroMagnitude)
                     } else {
                         Text(banner.text)
                             .foregroundColor(Color(UIColor.label)).lineLimit(1)
                             .font(.custom("Menlo", size: 250))
-                                .minimumScaleFactor(.leastNonzeroMagnitude)
+                            .minimumScaleFactor(.leastNonzeroMagnitude)
                     }
                 }
+                .navigationBarTitle("")
                 .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
-                       .padding()
+                .padding()
             }
         }
     }
@@ -45,6 +46,6 @@ struct DetailView: View {
 
 struct DetailView_Previews: PreviewProvider {
     static var previews: some View {
-            DetailView(banner: Banner(text: "testBannerText"))
+        DetailView(banner: Banner(text: "testBannerText"))
     }
 }
