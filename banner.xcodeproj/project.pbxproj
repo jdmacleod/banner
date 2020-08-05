@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		96C0A49224DA4326008460DA /* Banner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C0A49124DA4326008460DA /* Banner.swift */; };
 		96DF6E1A2393350B00525146 /* EditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DF6E192393350B00525146 /* EditView.swift */; };
 		96DF6E1C239452D900525146 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DF6E1B239452D900525146 /* DetailView.swift */; };
 		96E9EF942391ACC6001188A3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E9EF932391ACC6001188A3 /* AppDelegate.swift */; };
@@ -39,6 +40,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		96C0A49124DA4326008460DA /* Banner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Banner.swift; sourceTree = "<group>"; };
 		96DF6E192393350B00525146 /* EditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditView.swift; sourceTree = "<group>"; };
 		96DF6E1B239452D900525146 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		96E9EF902391ACC6001188A3 /* banner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = banner.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -110,6 +112,7 @@
 				96E9EF932391ACC6001188A3 /* AppDelegate.swift */,
 				96E9EF952391ACC6001188A3 /* SceneDelegate.swift */,
 				96E9EF9A2391ACC6001188A3 /* ContentView.swift */,
+				96C0A49124DA4326008460DA /* Banner.swift */,
 				96E9EFC62391CA5F001188A3 /* AddView.swift */,
 				96DF6E192393350B00525146 /* EditView.swift */,
 				96DF6E1B239452D900525146 /* DetailView.swift */,
@@ -284,6 +287,7 @@
 				96E9EFC72391CA5F001188A3 /* AddView.swift in Sources */,
 				96DF6E1C239452D900525146 /* DetailView.swift in Sources */,
 				96E9EF9B2391ACC6001188A3 /* ContentView.swift in Sources */,
+				96C0A49224DA4326008460DA /* Banner.swift in Sources */,
 				96DF6E1A2393350B00525146 /* EditView.swift in Sources */,
 				96E9EF962391ACC6001188A3 /* SceneDelegate.swift in Sources */,
 			);

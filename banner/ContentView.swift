@@ -8,41 +8,13 @@
 
 import SwiftUI
 
-struct Banner: Identifiable, Codable {
-    var id = UUID()
-    var text: String
-}
-
-class Banners: ObservableObject {
-    @Published var items = [Banner]() {
-        didSet {
-            let encoder = JSONEncoder()
-            
-            if let encoded = try?
-                encoder.encode(items) {
-                UserDefaults.standard.set(encoded, forKey: "Items")
-            }
-        }
-    }
-    init() {
-        if let items = UserDefaults.standard.data(forKey: "Items") {
-            let decoder = JSONDecoder()
-            
-            if let decoded = try?
-                decoder.decode([Banner].self, from: items) {
-                self.items = decoded
-                return
-            }
-        }
-        self.items = []
-    }
-}
-
 struct ContentView: View {
     @ObservedObject var banners = Banners()
     @State private var modalView = false
     @State private var showingEditBanner = false
     @Environment(\.editMode) var editMode
+    @State var isEditMode: EditMode = .inactive
+    @State var bannerSelection: Banner.ID? = nil
     
     var body: some View {
         NavigationView {
@@ -52,6 +24,9 @@ struct ContentView: View {
                     ) {
                         Text(item.text)
                     }
+                    .onTapGesture(perform: {if (self.isEditMode == .active) {self.banners.selectedUUID = item.id
+                        self.bannerSelection = item.id
+                        self.modalView = true}})
                 }
                 .onDelete(perform: removeItems)
                 .onMove(perform: moveItems)
@@ -62,15 +37,18 @@ struct ContentView: View {
                     self.modalView = true
                 }){
                     Image(systemName: "plus")
-                        .padding()
+                    .resizable()
+                        .scaleEffect(1.3)
                 }
+                .opacity((self.isEditMode == .inactive) ? 1 : 0)
             )
+                .environment(\.editMode, self.$isEditMode)
         }
         .sheet(isPresented: $modalView) {
-            if self.editMode?.wrappedValue == .inactive {
+            if self.isEditMode == .inactive {
                 AddView(banners: self.banners)
             }
-            if self.editMode?.wrappedValue == .active {
+            if self.isEditMode == .active {
                 EditView(banners: self.banners)
             }
         }

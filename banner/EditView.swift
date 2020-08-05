@@ -13,17 +13,21 @@ struct EditView: View {
     @ObservedObject var banners: Banners
     @State private var text = ""
     
+    
+    //banners.items[selectedIndex].text
+    
     var body: some View {
+        //let selectedIndex = banners.items.firstIndex(where: {$0.id == banners.selectedUUID})
+
         NavigationView {
             Form {
-                TextField("BannerText", text: $text)
+                TextField(banners.items[banners.items.firstIndex(where: {$0.id == banners.selectedUUID}) ?? 0].text, text: $text)
             }
             .navigationBarTitle(Text("Edit Banner"), displayMode: .inline)
             .navigationBarItems(leading: Button("Cancel") {
                 self.presentationMode.wrappedValue.dismiss()
                 }, trailing: Button("Save") {
-                    let item = Banner(text: self.text)
-                    self.banners.items.append(item)
+                    self.banners.items[self.banners.items.firstIndex(where: {$0.id == self.banners.selectedUUID}) ?? 0].text = self.text.trimmingCharacters(in: .whitespacesAndNewlines)
                     self.presentationMode.wrappedValue.dismiss()
             })
         }
